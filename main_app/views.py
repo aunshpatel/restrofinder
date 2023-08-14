@@ -30,6 +30,15 @@ class RestaurantCreate(CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
+  
+class RestaurantDelete(DeleteView):
+  model = Restaurant
+  success_url = '/restaurants'
+
+ 
+class RestaurantUpdate(UpdateView):
+  model = Restaurant
+  fields = ['name', 'address', 'description', 'opening_time', 'closing_time']
 
 def signup(request):
   error_message = ''
