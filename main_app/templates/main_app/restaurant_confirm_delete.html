@@ -9,5 +9,8 @@
     {% csrf_token %}
     <input type="submit" value="Yes - Delete!" class="btn">
     <a href="{% url 'detail' restaurant.id %}">Cancel</a>
+
   </form>
+  
 {% endblock %}
+
