@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Restaurant
+from .forms import ReviewForm
 
 # Create your views here.
 def home(request):
@@ -20,8 +21,11 @@ def restaurants_index(request):
 
 def restaurants_detail(request, restaurant_id):
   restaurant = Restaurant.objects.get(id=restaurant_id)
+  print(restaurant)
+  review_form = ReviewForm()
   return render(request, 'restaurants/detail.html', {
-    'restaurant': restaurant,
+    'restaurant': restaurant, 
+    'review_form': review_form 
   })
 
 class RestaurantCreate(CreateView):
@@ -44,6 +48,7 @@ def signup(request):
   error_message = ''
   if request.method == 'POST':
     form = UserCreationForm(request.POST)
+    print(form)
     if form.is_valid():
       user = form.save()
       login(request, user)
@@ -53,3 +58,14 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+
+def add_review(request, restaurant_id):
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+      new_review = form.save(commit=False)
+      new_review.restaurant_id = restaurant_id
+      new_review.user_id = request.user.id
+      new_review.save()
+    
+    return redirect('detail', restaurant_id=restaurant_id)
