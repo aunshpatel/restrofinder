@@ -22,4 +22,37 @@
     </div>
 </div>
 
+<div class="col s6">
+  <form action="{% url 'add_review' restaurant.id %}" method="POST">
+    {% csrf_token %}
+    {{ review_form.as_p }}
+    <input type="submit" class="btn" value="Add Review">
+  </form>
+  <table class="striped">
+    <thead>
+      <tr><th>Date</th><th>Review</th></tr>
+    </thead>
+    <tbody>
+      {% for review in restaurant.review_set.all %}
+        <tr>
+          <td>{{review.date_added}}</td>
+          <td>{{review.text}}</td>
+          <td>{{review.rating}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const dateEl = document.getElementById('id_date_added');
+    M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+  });
+</script>
+
+
 {% endblock %}
