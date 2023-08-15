@@ -33,7 +33,7 @@
     <tbody>
       {% for review in restaurant.review_set.all %}
         <tr>
-          <td>{{review.date}}</td>
+          <td>{{review.date_added}}</td>
           <td>{{review.text}}</td>
           <td>{{review.rating}}</td>
         </tr>
@@ -43,7 +43,7 @@
 </div>
 
 <script>
-  const dateEl = document.getElementById('id_date');
+  const dateEl = document.getElementById('id_date_added');
     M.Datepicker.init(dateEl, {
       format: 'yyyy-mm-dd',
       defaultDate: new Date(),
