@@ -32,5 +32,6 @@ As a user, I want to be able to edit details or delete my entry from the main li
 
 # Next Steps
 
-- Future enhancement one...
-- Future enhancement two... 
+- Future enhancement one: As restaurant owner, I can add my restaurant to be reviewed.
+- Future enhancement two: As a restaurant owner, I can add food challenges/events, discounts, etc for my restaurant.
+- Future enhancement three: As a user, I would like to be able to create a wishlist of restaurants I want to visit.
