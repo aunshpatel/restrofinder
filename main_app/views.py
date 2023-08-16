@@ -9,6 +9,7 @@ from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 import boto3, uuid, os
+from urllib.parse import urlparse
 
 # Create your views here.
 def home(request):
@@ -111,3 +112,16 @@ def add_photo(request, restaurant_id):
       print('An error occurred uploading file to S3')
       print(e)
   return redirect('detail', restaurant_id=restaurant_id)
+
+class ImageDelete(LoginRequiredMixin, DeleteView):
+  model = Photo
+  template_name = 'main_app/image_confirm_delete.html'
+  def get_success_url(self):
+    restaurant_id = self.object.restaurant.id
+    name = self.object.url.split('/')[-1]
+
+    s3_client = boto3.client("s3")
+    response = s3_client.delete_object(Bucket='restrofinder-aunsh', Key=name)
+    print(f'response:{response}')
+    return reverse('detail', kwargs={'restaurant_id': restaurant_id})
+
