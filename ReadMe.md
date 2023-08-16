@@ -12,6 +12,8 @@ A description of your game. Background info of the game is a nice touch.
 - HTML
 - CSS
 - Heroku
+- Postgre SQL
+- AWS
 
 # Getting Started
 
