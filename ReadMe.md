@@ -11,11 +11,9 @@ Explore our restaurant review app for a wonderful dining experience. Share your 
 
 - Python
 - Django
-- HTML
 - CSS
 - Heroku
 - Postgre SQL
-- AWS
 
 # Getting Started
 
@@ -31,6 +29,7 @@ As a user, I want to see an index list of restaurants when I log in.
 As a user, I want to be able to add restaurants to the main list.
 As a user, I can sign up to an account to be able to write a review.
 As a user, I want to be able to edit details or delete my entry from the main list.
+
 
 
 # Next Steps
