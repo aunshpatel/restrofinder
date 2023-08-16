@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse
 from django.views.generic import ListView, DetailView
-from .models import Restaurant
+from .models import Restaurant, Review
 from .forms import ReviewForm
 
 # Create your views here.
@@ -69,3 +70,20 @@ def add_review(request, restaurant_id):
       new_review.save()
     
     return redirect('detail', restaurant_id=restaurant_id)
+
+class ReviewUpdate(UpdateView):
+  model = Review
+  form_class = ReviewForm
+  template_name = 'main_app/edit_review.html'
+
+  def get_success_url(self):
+        restaurant_id = self.object.restaurant.id
+        return reverse('detail', kwargs={'restaurant_id': restaurant_id})
+  
+class ReviewDelete(DeleteView):
+  model = Review
+  template_name = 'main_app/review_confirm_delete.html'
+  
+  def get_success_url(self):
+        restaurant_id = self.object.restaurant.id
+        return reverse('detail', kwargs={'restaurant_id': restaurant_id})
