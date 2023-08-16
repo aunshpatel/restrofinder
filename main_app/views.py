@@ -38,7 +38,7 @@ class RestaurantCreate(CreateView):
   
 class RestaurantDelete(DeleteView):
   model = Restaurant
-  success_url = '/restaurants'
+  success_url = '/restaurants' 
 
  
 class RestaurantUpdate(UpdateView):
