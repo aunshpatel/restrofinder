@@ -1,5 +1,6 @@
 # <RestroFinder>
-A description of your game. Background info of the game is a nice touch.
+
+Explore our restaurant review app for a wonderful dining experience. Share your thoughts on local resturants, and discover recommended places backed by a community of reviewers. Join forces with other foodies and go out to discover the best restaurants.
 
 # Screenshot
 
@@ -34,4 +35,4 @@ As a user, I want to be able to edit details or delete my entry from the main li
 
 - Future enhancement one: As restaurant owner, I can add my restaurant to be reviewed.
 - Future enhancement two: As a restaurant owner, I can add food challenges/events, discounts, etc for my restaurant.
-- Future enhancement three: As a user, I would like to be able to create a wishlist of restaurants I want to visit.
+- Future enhancement three: As a user, I would like to be able to create a wishlist of restaurants I want to visit. 

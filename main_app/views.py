@@ -6,6 +6,8 @@ from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from .models import Restaurant, Review
 from .forms import ReviewForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
@@ -29,19 +31,19 @@ def restaurants_detail(request, restaurant_id):
     'review_form': review_form 
   })
 
-class RestaurantCreate(CreateView):
+class RestaurantCreate(LoginRequiredMixin, CreateView):
   model = Restaurant
   fields = ['name', 'address', 'description', 'opening_time', 'closing_time']
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
   
-class RestaurantDelete(DeleteView):
+class RestaurantDelete(LoginRequiredMixin, DeleteView):
   model = Restaurant
   success_url = '/restaurants' 
 
  
-class RestaurantUpdate(UpdateView):
+class RestaurantUpdate(LoginRequiredMixin, UpdateView):
   model = Restaurant
   fields = ['name', 'address', 'description', 'opening_time', 'closing_time']
 
@@ -60,7 +62,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
+@login_required
 def add_review(request, restaurant_id):
     form = ReviewForm(request.POST)
     if form.is_valid():
@@ -71,7 +73,7 @@ def add_review(request, restaurant_id):
     
     return redirect('detail', restaurant_id=restaurant_id)
 
-class ReviewUpdate(UpdateView):
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
   model = Review
   form_class = ReviewForm
   template_name = 'main_app/edit_review.html'
@@ -80,7 +82,7 @@ class ReviewUpdate(UpdateView):
         restaurant_id = self.object.restaurant.id
         return reverse('detail', kwargs={'restaurant_id': restaurant_id})
   
-class ReviewDelete(DeleteView):
+class ReviewDelete(LoginRequiredMixin, DeleteView):
   model = Review
   template_name = 'main_app/review_confirm_delete.html'
   
