@@ -24,6 +24,10 @@
   {% for photo in restaurant.photo_set.all %}
       <div>
         <img class="responsive-img card-panel" src="{{photo.url}}" alt="Food photo">
+        <br><br>
+        {% if request.user == photo.user %}
+          <a href="{% url 'delete_photo' restaurant_id=restaurant.id pk=photo.id %}" class="btn-small red">Delete</a>
+        {% endif %}
       </div>
   {% empty %}
       <div class="card-panel teal-text center-align">No Photos Uploaded</div>
