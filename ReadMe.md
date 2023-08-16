@@ -15,6 +15,7 @@ Explore our restaurant review app for a wonderful dining experience. Share your 
 - CSS
 - Heroku
 - Postgre SQL
+- AWS
 
 # Getting Started
 
