@@ -10,11 +10,11 @@
           <span class="card-title">{{ restaurant.name }}</span>
           <p>Address: {{ restaurant.address }}</p>
           <p>Description: {{ restaurant.description|linebreaks }}</p>
-          <p>Hours of Operation:{{ restaurant.opening_time}} to {{restaurant.closing_time }}</p>
-          <div class="card-action">
-            <a href="{% url 'restaurants_update' restaurant.id %}">Edit</a>
-            <a href="{% url 'restaurants_delete' restaurant.id %}">Delete</a>
-          </div>
+          <p>Hours of Operation: {{ restaurant.opening_time }} to {{ restaurant.closing_time }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{% url 'restaurants_update' restaurant.id %}" class="btn-small">Edit</a>
+          <a href="{% url 'restaurants_delete' restaurant.id %}" class="btn-small red">Delete</a>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
   </form>
   <table class="striped">
     <thead>
-      <tr><th>Date</th><th>Review</th></tr>
+      <tr><th>Date</th><th>Review</th><th>Rating</th><th></th></tr>
     </thead>
     <tbody>
       {% for review in restaurant.review_set.all %}
@@ -36,6 +36,12 @@
           <td>{{review.date_added}}</td>
           <td>{{review.text}}</td>
           <td>{{review.rating}}</td>
+          <td>
+            {% if request.user == review.user %}
+            <a href="{% url 'edit_review' restaurant_id=restaurant.id pk=review.id %}" class="btn-small">Edit</a>
+            <a href="{% url 'delete_review' restaurant_id=restaurant.id pk=review.id %}" class="btn-small red">Delete</a>
+            {% endif %}
+          </td>
         </tr>
       {% endfor %}
     </tbody>
