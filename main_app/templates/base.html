@@ -23,6 +23,8 @@
                     <li><a href="{% url 'index' %}">All Restaurants</a></li>
                     {% if user.is_authenticated %}
                       <li><a href="{% url 'restaurants_create' %}">Add a Restaurant</a></li>
+                      <li><a href="{% url 'my_wishlist' %}">My Wishlist</a></li>
+                      <li><a href="{% url 'wishlists' %}">Wishlists</a></li>
                       <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                       <li><a href="{% url 'signup' %}">Sign Up</a></li>

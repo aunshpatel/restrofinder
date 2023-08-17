@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>All Wishlists</h2>
+  {% for wishlist in all_wishlists %}
+    <h3>{{ wishlist.user.username }}'s Wishlist</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Restaurant Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for restaurant in wishlist.restaurants.all %}
+          <tr>
+            <td><a href="{% url 'detail' restaurant.id %}">{{ restaurant.name }}</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+{% endblock %}
