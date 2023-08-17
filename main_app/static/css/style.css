@@ -19,12 +19,27 @@ body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
 }
+* {
+    color: white;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.card .card-content p,.card .card-content span, .card-panel .teal-text .center-align, .card-panel input{
+    color: #673b3b;
+}
 
-.container {
-    max-width: 800px;
+
+body {
     margin: 0 auto;
     padding: 20px;
     text-align: center; 
+    background-image: url('https://foodreview.com/wp-content/uploads/2021/03/food-review-slider-1024x576.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  
 }
 
 h1 {
@@ -47,32 +62,18 @@ p {
     flex: 1;
     padding: 20px;
     border: 1px solid #ddd;
-    background-color: #f9f9f9;
+    background-color: #fff;
 }
 
 .review p {
     font-style: italic;
     font-size: 1.1rem;
     margin-bottom: 10px;
+    color: #673b3b;
 }
 
 .author {
     font-size: 0.9rem;
-}
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding: 10px 0;
-    background-color: #0a0a23;
-    color: #fff;
-}
-
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding: 10px 0;
-    background-color: #9a9797;
-    color: #fff;
 }
 .button {
     display: inline-block;
@@ -83,4 +84,30 @@ footer {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+.page-footer{
+    height: 55px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    padding-top: 19px;
+    background-color: #673b3b;
+}
+.page-footer > .right{
+    margin-left: auto;
+    order: 2;
+}
 
+.navbar-fixed nav {
+    position: fixed;
+}
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+    height: 64px;
+    line-height: 64px;
+}
+nav {
+    color: #fff;
+    background-color: #673b3b;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+}
