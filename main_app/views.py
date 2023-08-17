@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
-from django.views.generic import ListView, DetailView
-from .models import Restaurant, Review, Photo
+from .models import Restaurant, Review, Photo, Wishlist
 from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -104,9 +103,7 @@ def add_photo(request, restaurant_id):
     try:
       bucket = os.environ['S3_BUCKET']
       s3.upload_fileobj(photo_file, bucket, key)
-      # build the full url string
       url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-      # we can assign to restaurant_id or cat (if you have a cat object)
       Photo.objects.create(url=url, restaurant_id=restaurant_id, user_id=request.user.id)
     except Exception as e:
       print('An error occurred uploading file to S3')
@@ -125,3 +122,25 @@ class ImageDelete(LoginRequiredMixin, DeleteView):
     print(f'response:{response}')
     return reverse('detail', kwargs={'restaurant_id': restaurant_id})
 
+@login_required
+def my_wishlist(request):
+    user_wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    return render(request, 'main_app/my_wishlist.html', {'user_wishlist': user_wishlist})
+
+def wishlists(request):
+    all_wishlists = Wishlist.objects.all()
+    return render(request, 'main_app/wishlists.html', {'all_wishlists': all_wishlists})
+
+@login_required
+def add_to_wishlist(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+    user_wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    user_wishlist.restaurants.add(restaurant)
+    return redirect('my_wishlist')
+
+@login_required
+def remove_from_wishlist(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+    user_wishlist = get_object_or_404(Wishlist, user=request.user)
+    user_wishlist.restaurants.remove(restaurant)
+    return redirect('my_wishlist')

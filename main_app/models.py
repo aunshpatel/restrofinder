@@ -35,3 +35,11 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo for restaurant_id: {self.restaurant_id} @{self.url}"
+    
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    restaurants = models.ManyToManyField(Restaurant)
+
+    def __str__(self):
+        return f"{self.user.username}'s Wishlist: {', '.join([restaurant.name for restaurant in self.restaurants.all()])}"
+
