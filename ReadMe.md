@@ -5,8 +5,11 @@ Explore our restaurant review app for a wonderful dining experience. Share your 
 # Screenshot
 
 <img src="![Alt text](main_app/static/media/Page1.png)">
+![Page 1](/main_app/static/media/Page1.png/?raw=true)
 <img src="![Alt text](main_app/static/media/Page2.png)">
+![Page 2](/main_app/static/media/Page2.png/?raw=true)
 <img src="![Alt text](main_app/static/media/Page3.png)">
+![Page 3](/main_app/static/media/Page3.png/?raw=true)
 
 # Technologies Used
 
@@ -14,7 +17,7 @@ Explore our restaurant review app for a wonderful dining experience. Share your 
 - Django
 - CSS
 - Heroku
-- Postgre SQL
+- PostgreSQL
 
 # Getting Started
 
