@@ -4,8 +4,9 @@ Explore our restaurant review app for a wonderful dining experience. Share your 
 
 # Screenshot
 
-<img src="url to your image on imgur">
-<img src="url to your image on imgur">
+<img src="![Alt text](main_app/static/media/Page1.png)">
+<img src="![Alt text](main_app/static/media/Page2.png)">
+<img src="![Alt text](main_app/static/media/Page3.png)">
 
 # Technologies Used
 
@@ -38,6 +39,7 @@ MVP Goals:
 
 - Future enhancement one: As restaurant owner, I can add my restaurant to be reviewed.
 - Future enhancement two: As a restaurant owner, I can add food challenges/events, discounts, etc for my restaurant.
-- Future enhancement three: As a authorized user, I would like a button to mark which restaurants in my wishlist I have tried.
+- Future enhancement three: As a user it would be nice to be able to rate each restaurant 1-5 graphically using stars instead of numerically.
+- Future enhancement four: As a authorized user, I would like a button to mark which restaurants in my wishlist I have tried.
 
 
