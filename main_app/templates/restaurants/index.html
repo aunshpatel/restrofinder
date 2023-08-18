@@ -2,6 +2,7 @@
 {% block content %}
 
 <h1>All Restaurants</h1>
+<div id="all-restaurant-list">
 
 {% for restaurant in restaurants %}
   <a href="{% url 'detail' restaurant.id %}">
@@ -10,9 +11,11 @@
         <span class="card-title">{{ restaurant.name }}</span>
         <p>Address: {{ restaurant.address }}</p>
         <p>Description: {{ restaurant.description|linebreaks }}</p>
+        <p>Average Rating: {{restaurant.avg_rating}} </p>
       </div>
     </div>
   </a>
 {% endfor %}
+</div>
 
 {% endblock %}
