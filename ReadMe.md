@@ -1,4 +1,4 @@
-# <RestroFinder>
+# RestroFinder
 
 Explore our restaurant review app for a wonderful dining experience. Share your thoughts on local resturants, and discover recommended places backed by a community of reviewers. Join forces with other foodies and go out to discover the best restaurants.
 
