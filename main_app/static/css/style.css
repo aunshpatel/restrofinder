@@ -207,6 +207,11 @@ td{
     text-decoration: underline;
 }
 
+#my-wishlist table tbody tr td,
+.wishlist-table table tbody tr td{
+    text-align: left;
+}
+
 #my-wishlist {
     max-height: 450px;
     overflow: auto
