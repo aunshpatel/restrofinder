@@ -36,7 +36,7 @@ def restaurants_detail(request, restaurant_id):
   reviews = restaurant.review_set.all()
 
   avg_rating = 0
-  if reviews.exists:
+  if len(reviews) > 0:
     avg_rating = sum(review.rating for review in reviews) / len(reviews)
   
   return render(request, 'restaurants/detail.html', {
