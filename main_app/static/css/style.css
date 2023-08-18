@@ -1,50 +1,78 @@
-.team-member-img{
-    height: 333px;
-    width: 333px;
-}
-.team-members{
-    display: inline-flex;
-    justify-content: space-around;
-    width: 100%;
-}
-.team-member-summary, .team-members{
-    margin: 10px;
-}
-.team-member-summary h5, .team-member-summary p{
-    display: flex;
-    justify-content: center;
-}
-
-body, h1, h2, h3, p {
-    margin: 0;
-    padding: 0;
-}
 * {
     color: white;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
-.card .card-content p,.card .card-content span, .card-panel .teal-text .center-align, .card-panel input{
-    color: #673b3b;
-}
-
 
 body {
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; 
-    background-image: url('https://foodreview.com/wp-content/uploads/2021/03/food-review-slider-1024x576.png');
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /* background-image: url('../../static/media/bg-img.png');
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat; */
+    /* background-size: 100%; */
+    /*background-color: rgba(0, 0, 0, 0);
+    background-position: center; */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* section{
+     background-image: url('../../static/media/bg-img.png');
+    background-size: cover;
     background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0);
-  
+     background-size: 100%;
+    background-color: rgba(0, 0, 0, 0); 
+} */
+
+.team-member-img {
+    height: 250px;
+}
+
+.team-members {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+/* .team-member-summary, */
+.team-members {
+    margin: 10px;
+}
+
+.team-member-summary{
+    margin: 40px 50px;
+}
+
+.team-member-summary h5,
+.team-member-summary p {
+    display: flex;
+    justify-content: center;
+}
+
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.card .card-content p,
+.card .card-content span,
+.card-panel .teal-text .center-align,
+.card-panel input, #no-photos-uploaded {
+    color: #673b3b;
 }
 
 h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding: 0;
 }
 
 p {
@@ -58,6 +86,7 @@ p {
     justify-content: space-between;
     margin-bottom: 30px;
 }
+
 .review {
     flex: 1;
     padding: 20px;
@@ -75,6 +104,7 @@ p {
 .author {
     font-size: 0.9rem;
 }
+
 .button {
     display: inline-block;
     padding: 10px 20px;
@@ -84,30 +114,258 @@ p {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-.page-footer{
-    height: 55px;
-    margin-top: 0px;
-    display: flex;
-    justify-content: center;
-    padding-top: 19px;
-    background-color: #673b3b;
+
+section{
+    background-image: url('../../static/media/bg-img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    min-height: 100%;
+    max-height: fit-content;
+    /* height: 100vw; */
 }
-.page-footer > .right{
+
+footer {
+    /* position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; */
+    background-color: #673b3b !important;
+    height: 55px;
+    /* justify-content: center;
+    text-align: center;
+    margin: 0px; */
+}
+
+/* .page-footer{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #673b3b;
+    height: 55px;
+    justify-content: center;
+    text-align: center;
+} */
+.page-footer>.right {
     margin-left: auto;
     order: 2;
 }
-
-.navbar-fixed nav {
-    position: fixed;
+.navbar-fixed {
+    height: 56px;
 }
-nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+/* .navbar-fixed nav {
+    position: fixed;
+} */
+/* nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     height: 64px;
     line-height: 64px;
-}
-nav {
+} */
+/* nav {
     color: #fff;
     background-color: #673b3b;
     width: 100%;
     height: 56px;
     line-height: 56px;
+} */
+
+
+.navbar {
+    overflow: hidden;
+    background-color: #673b3b;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar ul li a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar ul li a:hover {
+    background: #ddd;
+    color: black;
+}
+
+/* .navbar .headerLeft, .navbar, .headerRight, .navbar{
+    height:50px;
+} */
+
+.headerLeft {
+    float: left;
+    display: inline-flex;
+    list-style: none
+}
+
+.headerRight {
+    float: right;
+    display: inline-flex;
+    list-style: none
+}
+
+.container {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: 100% !important;
+}
+
+table th label {
+    font-weight: 600 !important;
+    color: #fff !important;
+    font-size: 20px !important;
+}
+
+table.striped thead tr th {
+  background:white;
+  color:#673b3b;
+  border-radius: 0px;
+  position: sticky;
+  top: 0;
+  text-align: center; 
+}
+td{
+    text-align: center; 
+}
+
+
+#all-restaurant-list {
+    height: 620px;
+    overflow: auto;
+}
+
+#members-details {
+    margin-top: 20px;
+}
+
+#wishlist {
+    margin-top: 25px;
+    max-height: 650px;
+    overflow: auto;
+}
+
+.wishlist-table {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.wishlist-table a{
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+#my-wishlist {
+    max-height: 450px;
+    overflow: auto
+}
+
+.image-div img {
+    height: 200px;
+    /* width: 250px; */
+}
+
+#all-image-div,
+#image-row,
+#review {
+    display: flex;
+    /* flex-direction: row; */
+}
+
+#all-image-div {
+    overflow: auto;
+    width: 500px;
+    padding-top:15px;
+    border: 2px solid white;
+    /* background-color: white; */
+    /* white-space:nowrap; */
+}
+
+.image-div {
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#review {
+    padding-bottom: 20px;
+}
+
+#image-row,
+#review {
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#review-table,
+#review-form {
+    width: 550px;
+}
+
+#review-table {
+    height: 300px;
+    overflow: auto;
+}
+
+.edit-delete-td {
+    display: flex;
+    justify-content: space-between;
+    /* width: 150px; */
+}
+
+.card-action {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
+#detail-div.row {
+    margin-bottom: 10px
+}
+
+form p label {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+#signup-form-div, #login-form-div{
+    width: 300px;
+    display: inline-flex;
+    justify-content: center;
+}
+#login-form-div{
+    margin-top: 30px;
+}
+form p input,
+#review-form form p textarea {
+    border: 2px solid #9e9e9e;
+}
+
+
+.datepicker-day-button,
+.select-dropdown.dropdown-trigger {
+    color: #673b3b;
+}
+
+.datepicker-controls .select-month input {
+    width: 100%;
+}
+
+.confirm-delete {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 300px;
+}
+.form-div-tag{
+    height: 100%;
+}
+
+@media only screen and (min-width: 601px){
+    .container {
+        width: 90%;
+    }
 }

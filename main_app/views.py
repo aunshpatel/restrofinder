@@ -19,17 +19,30 @@ def about(request):
 
 def restaurants_index(request):
   restaurants = Restaurant.objects.all()
+  for restaurant in restaurants:
+    reviews = restaurant.review_set.all()
+    if reviews.exists():
+      restaurant.avg_rating = sum(review.rating for review in reviews) / len(reviews)
+    else:
+      restaurant.avg_rating = 0
+  
   return render(request, 'restaurants/index.html', {
     'restaurants': restaurants
   })
 
 def restaurants_detail(request, restaurant_id):
   restaurant = Restaurant.objects.get(id=restaurant_id)
-  print(restaurant)
   review_form = ReviewForm()
+  reviews = restaurant.review_set.all()
+
+  avg_rating = 0
+  if reviews.exists:
+    avg_rating = sum(review.rating for review in reviews) / len(reviews)
+  
   return render(request, 'restaurants/detail.html', {
     'restaurant': restaurant, 
-    'review_form': review_form 
+    'review_form': review_form,
+    'avg_rating': avg_rating
   })
 
 class RestaurantCreate(LoginRequiredMixin, CreateView):
