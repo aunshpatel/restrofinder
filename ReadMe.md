@@ -12,6 +12,7 @@ Explore our restaurant review app for a wonderful dining experience. Share your 
 
 - Python
 - Django
+- HTML
 - CSS
 - Heroku
 - PostgreSQL
